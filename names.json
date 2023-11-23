@@ -1,0 +1,100 @@
+{
+    "names": [
+        {
+            "base": "{0} med {1}",
+            "components": [3, 3],
+            "compound": [false, false],
+            "shape": null
+        },
+        {
+            "base": "{0} och {1}färssås",
+            "components": [3, 3],
+            "compound": [false, true],
+            "shape": null
+        },
+        {
+            "base": "{0} {1}",
+            "components": [7, 3],
+            "compound": [false, false],
+            "shape": null
+        },
+        {
+            "base": "{0}{1} {2}",
+            "components": [3, 7, 3],
+            "compound": [true, null, false],
+            "shape": null
+        },
+        {
+            "base": "Järpar på {0}färs",
+            "components": [3],
+            "compound": [true],
+            "shape": "järpar"
+        },
+        {
+            "base": "{0}soppa",
+            "components": [3],
+            "compound": [true],
+            "shape": null
+        },
+        {
+            "base": "{0} {1} på {2} {3}",
+            "components": [0, 3, 0, 3],
+            "compound": [null, false, null, false],
+            "shape": null
+        },
+        {
+            "base": "{0} Lindström",
+            "components": [3],
+            "compound": [false],
+            "shape": null
+        },
+        {
+            "base": "{0}mos",
+            "components": [3],
+            "compound": [true],
+            "shape": "mos"
+        },
+        {
+            "base": "{0}dolmar",
+            "components": [3],
+            "compound": [true],
+            "shape": "rulla dolmar"
+        },
+        {
+            "base": "{0}bollar",
+            "components": [3],
+            "compound": [true],
+            "shape": "forma bollar"
+        },
+        {
+            "base": "{0}bullar",
+            "components": [3],
+            "compound": [true],
+            "shape": "forma bullar"
+        },
+        {
+            "base": "{0} {1} i {2}",
+            "components": [0, 3, 3],
+            "compound": [false],
+            "shape": null
+        },
+        {
+            "base": "{0}lägg",
+            "components": [3],
+            "compound": [true],
+            "shape": null
+        },
+        {
+            "base": "{0} i {1} sås",
+            "components": [3, 0],
+            "compound": [false],
+            "shape": null
+        },
+        {
+            "base": "{0} {1}",
+            "components": [0, 3],
+            "compound": [false],
+            "shape": null
+        }
+    ]
+}
