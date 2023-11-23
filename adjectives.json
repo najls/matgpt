@@ -1,0 +1,49 @@
+{
+    "adjectives": [
+        {
+            "ngen": "bra",
+            "tgen": "bra",
+            "plural": "bra"
+        },
+        {
+            "ngen": "fattig",
+            "tgen": "fattigt",
+            "plural": "fattiga"
+        },
+        {
+            "ngen": "god",
+            "tgen": "gott",
+            "plural": "goda"
+        },
+        {
+            "ngen": "gyllenbrun",
+            "tgen": "gyllenbrunt",
+            "plural": "gyllenbruna"
+        },
+        {
+            "ngen": "het",
+            "tgen": "hett",
+            "plural": "heta"
+        },
+        {
+            "ngen": "himmelsk",
+            "tgen": "himmelskt",
+            "plural": "himmelska"
+        },
+        {
+            "ngen": "porös",
+            "tgen": "poröst",
+            "plural": "porösa"
+        },
+        {
+            "ngen": "röd",
+            "tgen": "rött",
+            "plural": "röda"
+        },
+        {
+            "ngen": "brungrå",
+            "tgen": "brungrått",
+            "plural": "brungråa"
+        }
+    ]
+}

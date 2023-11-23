@@ -1,0 +1,84 @@
+{
+    "verbs": [
+        {
+            "base": "avfyra",
+            "ngen": "avfyrad",
+            "tgen": "avfyrat"
+        },
+        {
+            "base": "avlägsna",
+            "ngen": "avlägsnad",
+            "tgen": "avlägsnat"
+        },
+        {
+            "base": "blanda",
+            "ngen": "blandad",
+            "tgen": "blandat"
+        },
+        {
+            "base": "flambera",
+            "ngen": "flamberad",
+            "tgen": "flamberat"
+        },
+        {
+            "base": "garnera",
+            "ngen": "garnerad",
+            "tgen": "garnerat"
+        },
+        {
+            "base": "hacka",
+            "ngen": "hackad",
+            "tgen": "hackat"
+        },
+        {
+            "base": "koka",
+            "ngen": "kokad",
+            "tgen": "kokat"
+        },
+        {
+            "base": "linda",
+            "ngen": "lindad",
+            "tgen": "lindat"
+        },
+        {
+            "base": "mosa",
+            "ngen": "mosad",
+            "tgen": "mosat"
+        },
+        {
+            "base": "poschera",
+            "ngen": "poscherad",
+            "tgen": "poscherat"
+        },
+        {
+            "base": "räkna",
+            "ngen": "räknad",
+            "tgen": "räknat"
+        },
+        {
+            "base": "skålla",
+            "ngen": "skållad",
+            "tgen": "skållat"
+        },
+        {
+            "base": "slunga",
+            "ngen": "slungad",
+            "tgen": "slungat"
+        },
+        {
+            "base": "spräng",
+            "ngen": "sprängd",
+            "tgen": "sprängt"
+        },
+        {
+            "base": "stek",
+            "ngen": "stekt",
+            "tgen": "stekt"
+        },
+        {
+            "base": "vispa",
+            "ngen": "vispad",
+            "tgen": "vispat"
+        }
+    ]
+}
