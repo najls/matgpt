@@ -1,0 +1,172 @@
+{
+    "ingredients" : [
+        {
+            "indefinite": ["ajvar"],
+            "definite": ["ajvaren"],
+            "compound": null,
+            "unit": false,
+            "ngen": true
+        },
+        {
+            "indefinite": ["arrak"],
+            "definite": ["arraken"],
+            "compound": "arraks",
+            "unit": false,
+            "ngen": true
+        },
+        {
+            "indefinite": ["bakpulver"],
+            "definite": ["bakpulvret"],
+            "compound": null,
+            "unit": false,
+            "ngen": false
+        },
+        {
+            "indefinite": ["bruna bönor och fläsk"],
+            "definite": ["bruna bönorna och fläsket"],
+            "compound": null,
+            "unit": false,
+            "ngen": true
+        },
+        {
+            "indefinite": ["citron', 'citroner"],
+            "definite": ["citronen', 'citronerna"],
+            "compound": null,
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["falafel', 'falafrar"],
+            "definite": ["falafeln', 'falafrarna"],
+            "compound": null,
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["florsocker"],
+            "definite": ["florsockret"],
+            "compound": null,
+            "unit": false,
+            "ngen": false
+        },
+        {
+            "indefinite": ["kikärta', 'kikärtor"],
+            "definite": ["kikärtan', 'kikärtorna"],
+            "compound": "kikärts",
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["korv', 'korvar"],
+            "definite": ["korven', 'korvarna"],
+            "compound": null,
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["korvbröd', 'korvbröd"],
+            "definite": ["korvbrödet', 'korvbröden"],
+            "compound": "korvbröds",
+            "unit": true,
+            "ngen": false
+        },
+        {
+            "indefinite": ["marinad"],
+            "definite": ["marinaden"],
+            "compound": null,
+            "unit": false,
+            "ngen": true
+        },
+        {
+            "indefinite": ["melass"],
+            "definite": ["melassen"],
+            "compound": null,
+            "unit": false,
+            "ngen": true
+        },
+        {
+            "indefinite": ["messmör"],
+            "definite": ["messmöret"],
+            "compound": "messmörs",
+            "unit": false,
+            "ngen": false
+        },
+        {
+            "indefinite": ["mjöl"],
+            "definite": ["mjölet"],
+            "compound": null,
+            "unit": false,
+            "ngen": false
+        },
+        {
+            "indefinite": ["morot', 'morötter"],
+            "definite": ["moroten', 'morötterna"],
+            "compound": "morots",
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["potatis', 'potatisar"],
+            "definite": ["potatisen', 'potatisarna"],
+            "compound": null,
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["smör"],
+            "definite": ["smöret"],
+            "compound": null,
+            "unit": false,
+            "ngen": false
+        },
+        {
+            "indefinite": ["svamp', 'svampar"],
+            "definite": ["svampen', 'svamparna"],
+            "compound": null,
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["sås"],
+            "definite": ["såsen"],
+            "compound": null,
+            "unit": false,
+            "ngen": true
+        },
+        {
+            "indefinite": ["trana', 'tranor"],
+            "definite": ["tranan', 'tranorna"],
+            "compound": "tran",
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["umami', 'umami"],
+            "definite": ["umamin', 'umamisarna"],
+            "compound": null,
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["vatten"],
+            "definite": ["vattnet"],
+            "compound": null,
+            "unit": false,
+            "ngen": false
+        },
+        {
+            "indefinite": ["ägg', 'ägg"],
+            "definite": ["ägget', 'äggen"],
+            "compound": null,
+            "unit": true,
+            "ngen": false
+        },
+        {
+            "indefinite": ["äpple', 'äpplen"],
+            "definite": ["äpplet', 'äpplena"],
+            "compound": "äppel",
+            "unit": true,
+            "ngen": false
+        }
+    ]
+}
