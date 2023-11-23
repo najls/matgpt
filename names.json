@@ -95,6 +95,12 @@
             "components": [0, 3],
             "compound": [false],
             "shape": null
+        },
+        {
+            "base": "{0}",
+            "components": [3],
+            "compound": [false],
+            "shape": null
         }
     ]
 }
