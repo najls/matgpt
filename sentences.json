@@ -1,0 +1,12 @@
+{
+    "sentences": [
+        {
+            "base": "Blanda {0} med {1}",
+            "components": [3, 3]
+        },
+        {
+            "base": "{0} {1} {2} tills {3} blivit {4}",
+            "components": [7, 3, 1, 4, 0]
+        }
+    ]
+}
