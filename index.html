@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+
+    <title>
+        MatGPT
+    </title>
+
+    <style>
+        #name::first-letter {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <h1>MatGPT</h1>
+    <h2 id="name"></h2>
+    <h3>Ingredienser</h3>
+    <ul id="ingredients"></ul>
+    <h3>Gör så här</h3>
+    <p id="instructions"></p>
+    <script type="module">
+        /* printf equivalent https://stackoverflow.com/a/4673436 */
+        if (!String.format) {
+            String.format = function(format) {
+                var args = Array.prototype.slice.call(arguments, 1);
+                return format.replace(/{(\d+)}/g, function(match, number) {
+                    return typeof args[number] != 'undefined' ? args[number] : match;
+                });
+            };
+        }
+
+        import Adjectives from 'https://najls.github.io/matgpt/adjectives.json' assert { type: 'json' };
+        const adjectives = Adjectives.adjectives;
+
+        import Adverbs from 'https://najls.github.io/matgpt/adverbs.json' assert { type: 'json' };
+        const adverbs = Adverbs.adverbs;
+
+        import Containers from 'https://najls.github.io/matgpt/containers.json' assert { type: 'json' };
+        const containers = Containers.containers;
+
+        import Ingredients from 'https://najls.github.io/matgpt/ingredients.json' assert { type: 'json' };
+        const ingredients = Ingredients.ingredients;
+
+        import Names from 'https://najls.github.io/matgpt/names.json' assert { type: 'json' };
+        const names = Names.names;
+
+        import Sentences from 'https://najls.github.io/matgpt/tools.json' assert { type: 'json' };
+        const sentences = Sentences.sentences;
+
+        import Tools from 'https://najls.github.io/matgpt/tools.json' assert { type: 'json' };
+        const tools = Tools.tools;
+
+        import Units from 'https://najls.github.io/matgpt/units.json' assert { type: 'json' };
+        const units = Units.units; // use truncated cauchy distribution
+
+        import Verbs from 'https://najls.github.io/matgpt/verbs.json' assert { type: 'json' };
+        const verbs = Verbs.verbs;
+
+        const pronouns = [
+            'den',
+            'det'
+        ];
+
+        // component enum
+        const compType = Object.freeze({
+            adjective: 0,
+            adverb: 1,
+            container: 2,
+            ingredient: 3,
+            pronoun: 4,
+            tool: 5,
+            unit: 6,
+            verb: 7
+        });
+
+        const compTypeArr = [
+            adjectives,
+            adverbs,
+            containers,
+            ingredients,
+            pronouns,
+            tools,
+            units,
+            verbs
+        ];
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        /* https://stackoverflow.com/a/29325222 */
+        function getBiasedRandomInt(min, max, bias, influence) {
+            let random = Math.random() * (max - min) + min,
+            mix = Math.random() * influence;
+            return Math.floor(random * (1 - mix) + bias * mix);
+        }
+
+        function truncCauchyDistrib(min, max, median, scale) {
+            const cdf = (x, m, s) => {
+                return(Math.atan((x - m) / s) / Math.PI + 0.5);
+            };
+
+            const rand = (a0, ad, m, s) => {
+                const u = Math.random(),
+                f0 = cdf(a0, m, s),
+                fd = cdf(ad, m, s) - f0;
+
+                return(m + s * Math.tan(Math.PI * (fd * u + f0 - 0.5)));
+            };
+
+            return Math.floor(rand(min, max, median, scale));
+        }
+
+        function getName(ingArr) {
+            let name = names[getRandomInt(0, names.length)],
+            components = [],
+            componentStrings = [];
+
+            for (let i = 0; i < name.components.length; i++) {
+                let type = name.components[i],
+                compArr,
+                comp;
+
+                if (type === compType.ingredient) {
+                    for (let j = 0; j < ingArr.length; j++) {
+                        comp = ingArr[j];
+
+                        if (components.indexOf(comp) === -1 || j === ingArr.length - 1) {
+                            components.push(comp);
+                            break;
+                        }
+                    }
+                }
+                else {
+                    compArr = compTypeArr[type];
+
+                    while (components.indexOf(comp) === -1) { // loops infinitely if name.components contains more of one type than the corresponding component type array
+                        comp = compArr[getRandomInt(0, compArr.length)];
+
+                        if (components.indexOf(comp) === -1) components.push(comp);
+                        else comp = null;
+                    }
+                }
+            }
+
+            for (let i = 0; i < name.components.length; i++) {
+                let type = name.components[i],
+                compStr;
+
+                if (type === compType.ingredient) {
+                    compStr = name.compound[i] && components[i].data.compound ? components[i].data.compound : components[i].data.indefinite[0];
+                }
+                else {
+                    if (name.components[i + 1] === compType.ingredient) {
+                        compStr = components[i][components[i + 1].data.ngen ? 'ngen' : 'tgen'];
+                        components[i + 1].predestination = components[i + 1].quantity === 1 || !components[i + 1].data.unit ? compStr : components[i].plural;
+                    }
+                    else {
+                        compStr = components[i].ngen;
+                    }
+                }
+                componentStrings.push(compStr);
+            }
+
+            return String.format(name.base, ...componentStrings);
+        }
+
+        class Ingredient {
+            constructor(data) {
+                this.data = data;
+                this.setQuantity();
+                this.setUnit();
+                this.setName();
+                this.predestination = null;
+            }
+
+            setQuantity() {
+                this.quantity = truncCauchyDistrib(1, 100, 2, 3);
+            }
+
+            setUnit() {
+                let unitIndex = truncCauchyDistrib(0, units.length, units.length / 8, units.length / 4);
+                this.unit = this.data.unit ? '' : this.quantity > 1 ? units[unitIndex].at(-1) : units[unitIndex][0];
+            }
+
+            setName() {
+                this.name = this.quantity > 1 && this.data.unit ? this.data.indefinite[1] : this.data.indefinite[0];
+            }
+        }
+
+        //var question = prompt('Ställ en fråga!');
+
+        var ingredientCount = getRandomInt(3, 7);
+        var nameElem = document.getElementById('name');
+        var ingredientElem = document.getElementById('ingredients');
+        var instructionsElem = document.getElementById('instructions');
+
+        var ingredientArr = [];
+        ingredients.sort(() => .5 - Math.random()).slice(0, ingredientCount).forEach(ingredient => ingredientArr.push(new Ingredient(ingredient)));
+
+        nameElem.appendChild(document.createTextNode(getName(ingredientArr)));
+
+        ingredientArr.forEach(ingredient => {
+            let li = document.createElement('li');
+            li.appendChild(document.createTextNode(`${ingredient.quantity} ${ingredient.unit} ${ingredient.name}`));
+            ingredientElem.appendChild(li);
+        });
+
+        instructionsElem.appendChild(document.createTextNode('hej'));
+
+        console.log(ingredientArr);
+    </script>
+</body>
+</html>
