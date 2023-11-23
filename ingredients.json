@@ -29,15 +29,15 @@
             "ngen": true
         },
         {
-            "indefinite": ["citron', 'citroner"],
-            "definite": ["citronen', 'citronerna"],
+            "indefinite": ["citron", "citroner"],
+            "definite": ["citronen", "citronerna"],
             "compound": null,
             "unit": true,
             "ngen": true
         },
         {
-            "indefinite": ["falafel', 'falafrar"],
-            "definite": ["falafeln', 'falafrarna"],
+            "indefinite": ["falafel", "falafrar"],
+            "definite": ["falafeln", "falafrarna"],
             "compound": null,
             "unit": true,
             "ngen": true
@@ -50,22 +50,22 @@
             "ngen": false
         },
         {
-            "indefinite": ["kikärta', 'kikärtor"],
-            "definite": ["kikärtan', 'kikärtorna"],
+            "indefinite": ["kikärta", "kikärtor"],
+            "definite": ["kikärtan", "kikärtorna"],
             "compound": "kikärts",
             "unit": true,
             "ngen": true
         },
         {
-            "indefinite": ["korv', 'korvar"],
-            "definite": ["korven', 'korvarna"],
+            "indefinite": ["korv", "korvar"],
+            "definite": ["korven", "korvarna"],
             "compound": null,
             "unit": true,
             "ngen": true
         },
         {
-            "indefinite": ["korvbröd', 'korvbröd"],
-            "definite": ["korvbrödet', 'korvbröden"],
+            "indefinite": ["korvbröd", "korvbröd"],
+            "definite": ["korvbrödet", "korvbröden"],
             "compound": "korvbröds",
             "unit": true,
             "ngen": false
@@ -99,15 +99,15 @@
             "ngen": false
         },
         {
-            "indefinite": ["morot', 'morötter"],
-            "definite": ["moroten', 'morötterna"],
+            "indefinite": ["morot", "morötter"],
+            "definite": ["moroten", "morötterna"],
             "compound": "morots",
             "unit": true,
             "ngen": true
         },
         {
-            "indefinite": ["potatis', 'potatisar"],
-            "definite": ["potatisen', 'potatisarna"],
+            "indefinite": ["potatis", "potatisar"],
+            "definite": ["potatisen", "potatisarna"],
             "compound": null,
             "unit": true,
             "ngen": true
@@ -120,8 +120,8 @@
             "ngen": false
         },
         {
-            "indefinite": ["svamp', 'svampar"],
-            "definite": ["svampen', 'svamparna"],
+            "indefinite": ["svamp", "svampar"],
+            "definite": ["svampen", "svamparna"],
             "compound": null,
             "unit": true,
             "ngen": true
@@ -134,15 +134,15 @@
             "ngen": true
         },
         {
-            "indefinite": ["trana', 'tranor"],
-            "definite": ["tranan', 'tranorna"],
+            "indefinite": ["trana", "tranor"],
+            "definite": ["tranan", "tranorna"],
             "compound": "tran",
             "unit": true,
             "ngen": true
         },
         {
-            "indefinite": ["umami', 'umami"],
-            "definite": ["umamin', 'umamisarna"],
+            "indefinite": ["umami", "umami"],
+            "definite": ["umamin", "umamisarna"],
             "compound": null,
             "unit": true,
             "ngen": true
@@ -155,15 +155,15 @@
             "ngen": false
         },
         {
-            "indefinite": ["ägg', 'ägg"],
-            "definite": ["ägget', 'äggen"],
+            "indefinite": ["ägg", "ägg"],
+            "definite": ["ägget", "äggen"],
             "compound": null,
             "unit": true,
             "ngen": false
         },
         {
-            "indefinite": ["äpple', 'äpplen"],
-            "definite": ["äpplet', 'äpplena"],
+            "indefinite": ["äpple", "äpplen"],
+            "definite": ["äpplet", "äpplena"],
             "compound": "äppel",
             "unit": true,
             "ngen": false
