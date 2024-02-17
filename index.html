@@ -36,58 +36,58 @@
             return response.json();
         }
 
-        const Adjectives = await fetch('./adjectives.json')
-            .then((data) => { return data.json() });
-        // const Adjectives = await fetch('https://najls.github.io/matgpt/adjectives.json')
+        // const Adjectives = await fetch('./adjectives.json')
         //     .then((data) => { return data.json() });
+        const Adjectives = await fetch('https://najls.github.io/matgpt/adjectives.json')
+            .then((data) => { return data.json() });
         const adjectives = Adjectives.adjectives;
 
-        const Adverbs = await fetch('./adverbs.json')
-            .then((data) => { return data.json() });
-        // const Adverbs = await fetch('https://najls.github.io/matgpt/adverbs.json')
+        // const Adverbs = await fetch('./adverbs.json')
         //     .then((data) => { return data.json() });
+        const Adverbs = await fetch('https://najls.github.io/matgpt/adverbs.json')
+            .then((data) => { return data.json() });
         const adverbs = Adverbs.adverbs;
 
-        const Containers = await fetch('./containers.json')
-            .then((data) => { return data.json() });
-        // const Containers = await fetch('https://najls.github.io/matgpt/containers.json')
+        // const Containers = await fetch('./containers.json')
         //     .then((data) => { return data.json() });
+        const Containers = await fetch('https://najls.github.io/matgpt/containers.json')
+            .then((data) => { return data.json() });
         const containers = Containers.containers;
 
-        const Ingredients = await fetch('./ingredients.json')
-            .then((data) => { return data.json() });
-        // const Ingredients = await fetch('https://najls.github.io/matgpt/ingredients.json')
+        // const Ingredients = await fetch('./ingredients.json')
         //     .then((data) => { return data.json() });
+        const Ingredients = await fetch('https://najls.github.io/matgpt/ingredients.json')
+            .then((data) => { return data.json() });
         const ingredients = Ingredients.ingredients;
 
-        const Names = await fetch('./names.json')
-            .then((data) => { return data.json() });
-        // const Names = await fetch('https://najls.github.io/matgpt/names.json')
+        // const Names = await fetch('./names.json')
         //     .then((data) => { return data.json() });
+        const Names = await fetch('https://najls.github.io/matgpt/names.json')
+            .then((data) => { return data.json() });
         const names = Names.names;
 
-        const Sentences = await fetch('./sentences.json')
-            .then((data) => { return data.json() });
-        // const Sentences = await fetch('https://najls.github.io/matgpt/sentences.json')
+        // const Sentences = await fetch('./sentences.json')
         //     .then((data) => { return data.json() });
+        const Sentences = await fetch('https://najls.github.io/matgpt/sentences.json')
+            .then((data) => { return data.json() });
         const sentences = Sentences.sentences;
 
-        const Tools = await fetch('./tools.json')
-            .then((data) => { return data.json() });
-        // const Tools = await fetch('https://najls.github.io/matgpt/tools.json')
+        // const Tools = await fetch('./tools.json')
         //     .then((data) => { return data.json() });
+        const Tools = await fetch('https://najls.github.io/matgpt/tools.json')
+            .then((data) => { return data.json() });
         const tools = Tools.tools;
 
-        const Units = await fetch('./units.json')
-            .then((data) => { return data.json() });
-        // const Units = await fetch('https://najls.github.io/matgpt/units.json')
+        // const Units = await fetch('./units.json')
         //     .then((data) => { return data.json() });
+        const Units = await fetch('https://najls.github.io/matgpt/units.json')
+            .then((data) => { return data.json() });
         const units = Units.units;
 
-        const Verbs = await fetch('./verbs.json')
-            .then((data) => { return data.json() });
-        // const Verbs = await fetch('https://najls.github.io/matgpt/verbs.json')
+        // const Verbs = await fetch('./verbs.json')
         //     .then((data) => { return data.json() });
+        const Verbs = await fetch('https://najls.github.io/matgpt/verbs.json')
+            .then((data) => { return data.json() });
         const verbs = Verbs.verbs;
 
         const pronouns = [
