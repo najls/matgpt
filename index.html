@@ -31,40 +31,63 @@
             };
         }
 
-        const { default: Adjectives } = await import('./adjectives.json', { assert: { type: 'json' } });
-        // const { default: Adjectives } = await import('https://najls.github.io/matgpt/adjectives.json', { assert: { type: 'json' } });
+        async function getData(url) {
+            const response = await fetch(url);
+            return response.json();
+        }
+
+        const Adjectives = await fetch('./adjectives.json')
+            .then((data) => { return data.json() });
+        // const Adjectives = await fetch('https://najls.github.io/matgpt/adjectives.json')
+        //     .then((data) => { return data.json() });
         const adjectives = Adjectives.adjectives;
 
-        const { default: Adverbs } = await import('./adverbs.json', { assert: { type: 'json' } });
-        // const { default: Adverbs } = await import('https://najls.github.io/matgpt/adverbs.json', { assert: { type: 'json' } });
+        const Adverbs = await fetch('./adverbs.json')
+            .then((data) => { return data.json() });
+        // const Adverbs = await fetch('https://najls.github.io/matgpt/adverbs.json')
+        //     .then((data) => { return data.json() });
         const adverbs = Adverbs.adverbs;
 
-        const { default: Containers } = await import('./containers.json', { assert: { type: 'json' } });
-        // const { default: Containers } = await import('https://najls.github.io/matgpt/containers.json', { assert: { type: 'json' } });
+        const Containers = await fetch('./containers.json')
+            .then((data) => { return data.json() });
+        // const Containers = await fetch('https://najls.github.io/matgpt/containers.json')
+        //     .then((data) => { return data.json() });
         const containers = Containers.containers;
 
-        const { default: Ingredients } = await import('./ingredients.json', { assert: { type: 'json' } });
-        // const { default: Ingredients } = await import('https://najls.github.io/matgpt/ingredients.json', { assert: { type: 'json' } });
+        const Ingredients = await fetch('./ingredients.json')
+            .then((data) => { return data.json() });
+        // const Ingredients = await fetch('https://najls.github.io/matgpt/ingredients.json')
+        //     .then((data) => { return data.json() });
         const ingredients = Ingredients.ingredients;
 
-        const { default: Names } = await import('./names.json', { assert: { type: 'json' } });
-        // const { default: Names } = await import('https://najls.github.io/matgpt/names.json', { assert: { type: 'json' } });
+        const Names = await fetch('./names.json')
+            .then((data) => { return data.json() });
+        // const Names = await fetch('https://najls.github.io/matgpt/names.json')
+        //     .then((data) => { return data.json() });
         const names = Names.names;
 
-        const { default: Sentences } = await import('./sentences.json', { assert: { type: 'json' } });
-        // const { default: Sentences } = await import('https://najls.github.io/matgpt/sentences.json', { assert: { type: 'json' } });
+        const Sentences = await fetch('./sentences.json')
+            .then((data) => { return data.json() });
+        // const Sentences = await fetch('https://najls.github.io/matgpt/sentences.json')
+        //     .then((data) => { return data.json() });
         const sentences = Sentences.sentences;
 
-        const { default: Tools } = await import('./tools.json', { assert: { type: 'json' } });
-        // const { default: Tools } = await import('https://najls.github.io/matgpt/tools.json', { assert: { type: 'json' } });
+        const Tools = await fetch('./tools.json')
+            .then((data) => { return data.json() });
+        // const Tools = await fetch('https://najls.github.io/matgpt/tools.json')
+        //     .then((data) => { return data.json() });
         const tools = Tools.tools;
 
-        const { default: Units } = await import('./units.json', { assert: { type: 'json' } });
-        // const { default: Units } = await import('https://najls.github.io/matgpt/units.json', { assert: { type: 'json' } });
-        const units = Units.units; // use truncated cauchy distribution
+        const Units = await fetch('./units.json')
+            .then((data) => { return data.json() });
+        // const Units = await fetch('https://najls.github.io/matgpt/units.json')
+        //     .then((data) => { return data.json() });
+        const units = Units.units;
 
-        const { default: Verbs } = await import('./verbs.json', { assert: { type: 'json' } });
-        // const { default: Verbs } = await import('https://najls.github.io/matgpt/verbs.json', { assert: { type: 'json' } });
+        const Verbs = await fetch('./verbs.json')
+            .then((data) => { return data.json() });
+        // const Verbs = await fetch('https://najls.github.io/matgpt/verbs.json')
+        //     .then((data) => { return data.json() });
         const verbs = Verbs.verbs;
 
         const pronouns = [
