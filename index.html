@@ -7,18 +7,41 @@
     <title>MatGPT</title>
 
     <style>
-        #name::first-letter {
+        body {
+            background-color: #212121;
+            color: white;
+        }
+
+        .grey-box {
+            background-color: #343541;
+            margin: 1rem;
+            padding: 0;
+        }
+
+        #chat h1::first-letter {
             text-transform: capitalize;
         }
+
+        #chat h1, #chat h2 { font-size: 1rem }
+        #chat > div {
+            overflow: auto;
+            padding: 0 1rem
+        }
+        #chat > div:nth-child(odd) { background-color: #444654 }
     </style>
 </head>
 <body>
     <h1>MatGPT</h1>
-    <h2 id="name"></h2>
-    <h3>Ingredienser</h3>
-    <ul id="ingredients"></ul>
-    <!-- <h3>Gör så här</h3>
-    <p id="instructions"></p> -->
+    <main>
+        <div class="grey-box">
+            <div id="chat"></div>
+            <form id="form">
+                <input id="message" placeholder="Skriv ett meddelande" type="text">
+                <button id="send">Skicka</button>
+            </form>
+        </div>
+    </main>
+
     <script type="module">
         /* printf equivalent https://stackoverflow.com/a/4673436 */
         if (!String.format) {
@@ -30,16 +53,17 @@
             };
         }
 
-        async function getData(url) {
-            const response = await fetch(url);
-            return response.json();
-        }
-
         // const Adjectives = await fetch('./adjectives.json')
         //     .then((data) => { return data.json() });
         const Adjectives = await fetch('https://najls.github.io/matgpt/adjectives.json')
             .then((data) => { return data.json() });
         const adjectives = Adjectives.adjectives;
+
+        // const Affirmations = await fetch('./affirmations.json')
+        //     .then((data) => { return data.json() });
+        const Affirmations = await fetch('https://najls.github.io/matgpt/affirmations.json')
+            .then((data) => { return data.json() });
+        const affirmations = Affirmations.affirmations;
 
         // const Adverbs = await fetch('./adverbs.json')
         //     .then((data) => { return data.json() });
@@ -53,6 +77,12 @@
             .then((data) => { return data.json() });
         const containers = Containers.containers;
 
+        // const Greetings = await fetch('./greetings.json')
+        //     .then((data) => { return data.json() });
+        const Greetings = await fetch('https://najls.github.io/matgpt/greetings.json')
+            .then((data) => { return data.json() });
+        const greetings = Greetings.greetings;
+
         // const Ingredients = await fetch('./ingredients.json')
         //     .then((data) => { return data.json() });
         const Ingredients = await fetch('https://najls.github.io/matgpt/ingredients.json')
@@ -64,6 +94,12 @@
         const Names = await fetch('https://najls.github.io/matgpt/names.json')
             .then((data) => { return data.json() });
         const names = Names.names;
+
+        // const Preambles = await fetch('./preambles.json')
+        //     .then((data) => { return data.json() });
+        const Preambles = await fetch('https://najls.github.io/matgpt/preambles.json')
+            .then((data) => { return data.json() });
+        const preambles = Preambles.preambles;
 
         // const Sentences = await fetch('./sentences.json')
         //     .then((data) => { return data.json() });
@@ -116,6 +152,12 @@
             units,
             verbs
         ];
+
+        /* get data from json file */
+        async function getData(url) {
+            const response = await fetch(url);
+            return response.json();
+        }
 
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min) + min);
@@ -198,6 +240,47 @@
             return String.format(name.base, ...componentStrings);
         }
 
+        function greet() {
+            let content = document.createElement('div');
+            let text = document.createElement('p');
+            text.textContent = greetings[getRandomInt(0, greetings.length)];
+            content.appendChild(text);
+            addElemToChat(content);
+        }
+
+        function respond() {
+            let content = document.createElement('div');
+            let ingredientCount = getRandomInt(3, 7);
+            let preambleElem = document.createElement('p');
+            let recipeElem = document.createElement('article');
+            let nameElem = document.createElement('h1');
+            let ingredientsElem = document.createElement('ul');
+
+            let ingredientArr = [];
+            ingredients.sort(() => .5 - Math.random()).slice(0, ingredientCount).forEach(ingredient => ingredientArr.push(new Ingredient(ingredient)));
+
+            let name = getName(ingredientArr);
+            let preamble = String.format(preambles[getRandomInt(0, preambles.length)], name);
+
+            ingredientArr.forEach(ingredient => {
+                let li = document.createElement('li');
+                li.appendChild(document.createTextNode(`${ingredient.quantity} ${ingredient.unit} ${ingredient.name}`));
+                ingredientsElem.appendChild(li);
+            });
+
+            preambleElem.appendChild(document.createTextNode(preamble));
+            nameElem.appendChild(document.createTextNode(name));
+            recipeElem.appendChild(preambleElem);
+            recipeElem.appendChild(nameElem);
+            recipeElem.appendChild(ingredientsElem);
+            content.appendChild(recipeElem);
+            addElemToChat(content);
+        }
+
+        function addElemToChat(elem) {
+            document.getElementById('chat').appendChild(elem);
+        }
+
         class Ingredient {
             constructor(data) {
                 this.data = data;
@@ -221,27 +304,23 @@
             }
         }
 
-        //var question = prompt('Ställ en fråga!');
+        let message = document.getElementById('message');
 
-        var ingredientCount = getRandomInt(3, 7);
-        var nameElem = document.getElementById('name');
-        var ingredientElem = document.getElementById('ingredients');
-        var instructionsElem = document.getElementById('instructions');
+        document.getElementById('form').addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        var ingredientArr = [];
-        ingredients.sort(() => .5 - Math.random()).slice(0, ingredientCount).forEach(ingredient => ingredientArr.push(new Ingredient(ingredient)));
-
-        nameElem.appendChild(document.createTextNode(getName(ingredientArr)));
-
-        ingredientArr.forEach(ingredient => {
-            let li = document.createElement('li');
-            li.appendChild(document.createTextNode(`${ingredient.quantity} ${ingredient.unit} ${ingredient.name}`));
-            ingredientElem.appendChild(li);
+            if (message.value) {
+                let content = document.createElement('div');
+                let text = document.createElement('p');
+                text.textContent = message.value;
+                content.appendChild(text);
+                message.value = '';
+                addElemToChat(content);
+                respond();
+            }
         });
 
-        // instructionsElem.appendChild(document.createTextNode('hej'));
-
-        console.log(ingredientArr);
+        greet();
     </script>
 </body>
 </html>
