@@ -7,41 +7,72 @@
     <title>MatGPT</title>
 
     <style>
+        * { box-sizing: border-box }
+        html { scroll-behavior: smooth }
         body {
             background-color: #212121;
             color: white;
         }
-
         .grey-box {
             background-color: #343541;
             margin: 1rem;
             padding: 0;
         }
-
         #chat h1::first-letter {
             text-transform: capitalize;
         }
-
         #chat h1, #chat h2 { font-size: 1rem }
         #chat > div {
             overflow: auto;
             padding: 0 1rem
         }
         #chat > div:nth-child(odd) { background-color: #444654 }
+        #form {
+            display: grid;
+            grid-template-columns: 1fr 3rem;
+            height: 3rem;
+        }
+        #form input {
+            border-radius: 0;
+            padding: 0 0 0 .5rem;
+        }
+        #message { min-width: 0 }
+        #send {
+            background-color: greenyellow;
+            font-size: 1.75rem;
+        }
+        #typing span { animation: blink 1.5s infinite }
+        #typing span:nth-child(2) { animation-delay: .5s }
+        #typing span:nth-child(3) { animation-delay: 1s }
+        @keyframes blink {
+            0% {
+                opacity: .1;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                opacity: .1;
+            }
+        }
+        .display-none { display: none }
     </style>
 </head>
 <body>
     <h1>MatGPT</h1>
     <main>
         <div class="grey-box">
-            <div id="chat"></div>
+            <div id="chat">
+                <div id="typing">
+                    <p><span>.</span><span>.</span><span>.</span></p>
+                </div>
+            </div>
             <form id="form">
                 <input id="message" placeholder="Skriv ett meddelande" type="text">
-                <button id="send">Skicka</button>
+                <button id="send" type="button">&#11166;</button>
             </form>
         </div>
     </main>
-
     <script type="module">
         /* printf equivalent https://stackoverflow.com/a/4673436 */
         if (!String.format) {
@@ -240,15 +271,19 @@
             return String.format(name.base, ...componentStrings);
         }
 
-        function greet() {
+        async function greet() {
+            await new Promise(r => setTimeout(r, 1000));
             let content = document.createElement('div');
             let text = document.createElement('p');
             text.textContent = greetings[getRandomInt(0, greetings.length)];
             content.appendChild(text);
+            document.getElementById('typing').classList.add('display-none');
             addElemToChat(content);
         }
 
-        function respond() {
+        async function respond() {
+            document.getElementById('typing').classList.remove('display-none');
+            await new Promise(r => setTimeout(r, 1000));
             let content = document.createElement('div');
             let ingredientCount = getRandomInt(3, 7);
             let preambleElem = document.createElement('p');
@@ -274,12 +309,16 @@
             recipeElem.appendChild(nameElem);
             recipeElem.appendChild(ingredientsElem);
             content.appendChild(recipeElem);
+            document.getElementById('typing').classList.add('display-none');
             addElemToChat(content);
         }
 
         function addElemToChat(elem) {
-            document.getElementById('chat').appendChild(elem);
+            document.getElementById('chat').insertBefore(elem, document.getElementById('typing'));
+            window.scrollTo(0, document.body.scrollHeight);
         }
+
+
 
         class Ingredient {
             constructor(data) {
