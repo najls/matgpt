@@ -41,6 +41,7 @@
             padding: 0 1rem
         }
         #chat > div:nth-child(odd) { background-color: #444654 }
+        #chat > div > p:first-child { font-size: .75rem }
         #form {
             display: grid;
             grid-template-columns: 1fr 3rem;
@@ -299,7 +300,7 @@
             text.textContent = greetings[getRandomInt(0, greetings.length)];
             content.appendChild(text);
             document.getElementById('typing').classList.add('display-none');
-            addElemToChat(content);
+            addElemToChat(content, 'MatGPT');
         }
 
         async function respond() {
@@ -331,15 +332,17 @@
             recipeElem.appendChild(ingredientsElem);
             content.appendChild(recipeElem);
             document.getElementById('typing').classList.add('display-none');
-            addElemToChat(content);
+            addElemToChat(content, 'MatGPT');
         }
 
-        function addElemToChat(elem) {
+        function addElemToChat(elem, sender) {
+            let messageHead = document.createElement('p');
+            let date = new Date();
+            messageHead.appendChild(document.createTextNode(`${sender} (${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}):`));
+            elem.insertBefore(messageHead, elem.firstChild);
             document.getElementById('chat').insertBefore(elem, document.getElementById('typing'));
             window.scrollTo(0, document.body.scrollHeight);
         }
-
-
 
         class Ingredient {
             constructor(data) {
@@ -375,7 +378,7 @@
                 text.textContent = message.value;
                 content.appendChild(text);
                 message.value = '';
-                addElemToChat(content);
+                addElemToChat(content, 'Du');
                 respond();
             }
         });
