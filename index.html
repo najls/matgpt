@@ -42,9 +42,6 @@
             height: 100%;
         }
         #chat { flex: 1 }
-        #chat h1::first-letter, #chat p::first-letter {
-            text-transform: capitalize;
-        }
         #chat h1, #chat h2 { font-size: 1.125rem }
         #chat > div {
             overflow: auto;
@@ -87,6 +84,7 @@
                 opacity: 0;
             }
         }
+        .capitalize::first-letter { text-transform: uppercase }
         .display-none { display: none }
     </style>
 </head>
@@ -342,7 +340,9 @@
             });
 
             preambleElem.appendChild(document.createTextNode(preamble));
+            preambleElem.className = 'capitalize';
             nameElem.appendChild(document.createTextNode(name));
+            nameElem.className = 'capitalize';
             recipeElem.appendChild(nameElem);
             recipeElem.appendChild(ingredientsElem);
             content.appendChild(preambleElem);
