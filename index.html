@@ -8,30 +8,40 @@
 
     <style>
         * { box-sizing: border-box }
+        html, body { height: 100dvh }
         html { scroll-behavior: smooth }
         body {
             background-color: #212121;
             color: white;
+            display: grid;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 1.125rem;
+            margin: 0;
+            grid-template-rows: 8rem 1fr;
         }
-        body > h1 {
+        header {
             background-image: url('img/pizzastock.jpg');
             background-size: 150% 100%;
+            position: sticky;
+            top: 0;
+        }
+        header > h1 {
+            background-image: url('img/pizzastock.jpg');
             color: greenyellow;
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: 3rem;
             font-style: italic;
-            padding: 2rem;
             -webkit-text-stroke: .063rem black;
-            stroke: .063rem black;
             paint-order: stroke fill;
         }
         .grey-box {
             background-color: #343541;
-            margin: 1rem;
+            display: flex;
+            flex-direction: column;
             padding: 0;
+            height: 100%;
         }
+        #chat { flex: 1 }
         #chat h1::first-letter {
             text-transform: capitalize;
         }
@@ -46,6 +56,8 @@
             display: grid;
             grid-template-columns: 1fr 3rem;
             height: 3rem;
+            position: sticky;
+            bottom: 0;
         }
         #form input {
             border-radius: 0;
@@ -79,7 +91,9 @@
     </style>
 </head>
 <body>
-    <h1>MatGPT</h1>
+    <header>
+        <h1>MatGPT</h1>
+    </header>
     <main>
         <div class="grey-box">
             <div id="chat">
@@ -304,8 +318,9 @@
         }
 
         async function respond() {
+            registeredResponses++;
             document.getElementById('typing').classList.remove('display-none');
-            await new Promise(r => setTimeout(r, getRandomInt(20, 60) * 100));
+            await new Promise(r => setTimeout(r, getRandomInt(20, 60) * 100)); // wait for 2 to 6 seconds
             let content = document.createElement('div');
             let ingredientCount = getRandomInt(3, 7);
             let preambleElem = document.createElement('p');
@@ -327,11 +342,12 @@
 
             preambleElem.appendChild(document.createTextNode(preamble));
             nameElem.appendChild(document.createTextNode(name));
-            recipeElem.appendChild(preambleElem);
             recipeElem.appendChild(nameElem);
             recipeElem.appendChild(ingredientsElem);
+            content.appendChild(preambleElem);
             content.appendChild(recipeElem);
-            document.getElementById('typing').classList.add('display-none');
+            registeredResponses--;
+            if (registeredResponses === 0) document.getElementById('typing').classList.add('display-none');
             addElemToChat(content, 'MatGPT');
         }
 
@@ -367,6 +383,7 @@
             }
         }
 
+        let registeredResponses = 0; // keep track of outgoing responses to have the typing element going
         let message = document.getElementById('message');
 
         document.getElementById('form').addEventListener('submit', (e) => {
