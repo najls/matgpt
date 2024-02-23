@@ -1,7 +1,12 @@
 {
     "preambles": [
         "Här kommer ett recept på {0} som jag tror att du kommer uppskatta!",
-        "Här är ett smarrigt recept på {0}",
-        "Det här är ett klassiskt recept på {0}"
+        "Här är ett smarrigt recept på {0}:",
+        "Det här är ett klassiskt recept på {0}:",
+        "Du kan testa det här receptet på {0} som är väldigt populärt:",
+        "Om du vill ha en utmaning i köket rekommenderar jag det här receptet på {0}.",
+        "{0} är en riktig familjefavorit som säkert lagas i många kök ikväll. Här är receptet:",
+        "{0} är en enkel och god maträtt som passar dom flesta:",
+        "Om du verkligen vill imponera på gästerna kan du prova att laga {0}!"
     ]
 }
