@@ -8,7 +8,7 @@
 
     <style>
         * { box-sizing: border-box }
-        html, body { height: 100dvh }
+        html, body { min-height: 100dvh } /* min-height to prevent overflow and header leaving the viewport */
         html { scroll-behavior: smooth }
         body {
             background-color: #212121;
@@ -16,8 +16,8 @@
             display: grid;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 1.125rem;
-            margin: 0;
             grid-template-rows: 8rem 1fr;
+            margin: 0;
         }
         header {
             background-image: url('img/pizzastock.jpg');
@@ -42,7 +42,7 @@
             height: 100%;
         }
         #chat { flex: 1 }
-        #chat h1::first-letter {
+        #chat h1::first-letter, #chat p::first-letter {
             text-transform: capitalize;
         }
         #chat h1, #chat h2 { font-size: 1.125rem }
@@ -320,6 +320,7 @@
         async function respond() {
             registeredResponses++;
             document.getElementById('typing').classList.remove('display-none');
+            window.scrollTo(0, document.body.scrollHeight);
             await new Promise(r => setTimeout(r, getRandomInt(20, 60) * 100)); // wait for 2 to 6 seconds
             let content = document.createElement('div');
             let ingredientCount = getRandomInt(3, 7);
