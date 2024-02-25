@@ -172,6 +172,12 @@
             .then((data) => { return data.json() });
         const sentences = Sentences.sentences;
 
+        // const Steps = await fetch('./steps.json')
+        //     .then((data) => { return data.json() });
+        const Steps = await fetch('https://najls.github.io/matgpt/steps.json')
+            .then((data) => { return data.json() });
+        const steps = Steps.steps;
+
         // const Tools = await fetch('./tools.json')
         //     .then((data) => { return data.json() });
         const Tools = await fetch('https://najls.github.io/matgpt/tools.json')
@@ -189,11 +195,6 @@
         const Verbs = await fetch('https://najls.github.io/matgpt/verbs.json')
             .then((data) => { return data.json() });
         const verbs = Verbs.verbs;
-
-        const pronouns = [
-            'den',
-            'det'
-        ];
 
         // component enum
         const compType = Object.freeze({
