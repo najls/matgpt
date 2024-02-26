@@ -190,6 +190,12 @@
             .then((data) => { return data.json() });
         const verbs = Verbs.verbs;
 
+        // const Methods = await fetch('./methods.json')
+        //     .then((data) => { return data.json() });
+        const Methods = await fetch('https://najls.github.io/matgpt/methods.json')
+            .then((data) => { return data.json() });
+        const methods = Methods.methods;
+
         const pronouns = [
             'den',
             'det',
@@ -205,7 +211,8 @@
             pronoun: 4,
             tool: 5,
             unit: 6,
-            verb: 7
+            verb: 7,
+            method: 8
         });
 
         const compTypeArr = [
@@ -216,7 +223,8 @@
             pronouns,
             tools,
             units,
-            verbs
+            verbs,
+            methods
         ];
 
         /* get data from json file */
@@ -335,18 +343,13 @@
                     let component,
                         compStr = '';
 
-                    if (type !== compType.ingredient && type !== compType.pronoun)
-                        component = compTypeArr[type][getRandomInt(0, compTypeArr[type].length)];
-
                     switch(type) {
                         case compType.adjective:
+                            component = compTypeArr[type][getRandomInt(0, compTypeArr[type].length)];
                             // base adjective on previous ingredient
                             if (ingArr[ingCount - 1].data.unit && ingArr[ingCount - 1].quantity > 1) compStr = component.plural;
                             else if (ingArr[ingCount - 1].data.ngen) compStr = component.ngen;
                             else compStr = component.tgen;
-                            break;
-                        case compType.adverb:
-                            compStr += component;
                             break;
                         case compType.ingredient:
                             component = ingArr[ingCount];
@@ -354,14 +357,15 @@
                             ingCount++;
                             break;
                         case compType.pronoun:
+                            component = compTypeArr[type][getRandomInt(0, compTypeArr[type].length)];
                             // base pronoun on previous ingredient
                             if (ingArr[ingCount - 1].data.unit && ingArr[ingCount - 1].quantity > 1) compStr = pronouns[2];
                             else if (ingArr[ingCount - 1].data.ngen) compStr = pronouns[0];
                             else compStr = pronouns[1];
                             break;
-                        case compType.verb:
+                        default:
+                            component = compTypeArr[type][getRandomInt(0, compTypeArr[type].length)];
                             compStr += component.base;
-                            break;
                     }
 
                     compStrings.push(compStr);

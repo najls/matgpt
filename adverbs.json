@@ -10,9 +10,6 @@
             "base": "varsamt"
         },
         {
-            "base": "poröst"
-        },
-        {
             "base": "frenetiskt"
         },
         {
@@ -22,16 +19,16 @@
             "base": "våldsamt"
         },
         {
-            "base": "argt"
-        },
-        {
             "base": "längtansfullt"
         },
         {
             "base": "energiskt"
         },
         {
-            "base": "sturskt"
+            "base": "länge"
+        },
+        {
+            "base": "noggrant"
         }
     ]
 }

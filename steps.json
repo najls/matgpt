@@ -22,6 +22,21 @@
             "ingredientCount": 2
         },
         {
+            "base": "{0} {1} i {2} tills det är {3}.",
+            "components": [8, 3, 2, 0],
+            "ingredientCount": 1
+        },
+        {
+            "base": "{0} {1} i {2} tills det ser {3} ut.",
+            "components": [8, 3, 2, 0],
+            "ingredientCount": 1
+        },
+        {
+            "base": "{0} {1} tillsammans med {2} i {3} tills det ser {4} ut.",
+            "components": [8, 3, 3, 2, 0],
+            "ingredientCount": 2
+        },
+        {
             "base": "{0} {1} tillsammans med {2} och {3} i {4} tills det ser {5} ut.",
             "components": [8, 3, 3, 3, 2, 0],
             "ingredientCount": 3
