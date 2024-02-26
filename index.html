@@ -367,10 +367,11 @@
                     compStrings.push(compStr);
                 });
 
-                instructionSteps.push(String.format(step.base, ...compStrings));
+                let sentence = String.format(step.base, ...compStrings);
+                instructionSteps.push(sentence.charAt(0).toUpperCase() + sentence.slice(1)); // capitalize first letter
             });
 
-            return instructionSteps;
+            return instructionSteps.join(' ');
         }
 
         async function greet() {
@@ -399,8 +400,12 @@
 
             ingredients.sort(() => .5 - Math.random()).slice(0, ingredientCount).forEach(ingredient => ingredientArr.push(new Ingredient(ingredient)));
 
-            let name = getName(ingredientArr),
-                preamble = String.format(preambles[getRandomInt(0, preambles.length)], name);
+            let name = getName(ingredientArr);
+
+            preambleElem.className = 'capitalize';
+            preambleElem.appendChild(document.createTextNode(String.format(preambles[getRandomInt(0, preambles.length)], name)));
+            nameElem.className = 'capitalize';
+            nameElem.appendChild(document.createTextNode(name));
 
             ingredientArr.forEach(ingredient => {
                 let li = document.createElement('li');
@@ -408,20 +413,11 @@
                 ingredientsElem.appendChild(li);
             });
 
-            let instructions = getInstructions(ingredientArr);
-
-            Array.from(instructions).forEach(step => {
-                let stepElem = document.createElement('span');
-                stepElem.appendChild(document.createTextNode(step.charAt(0).toUpperCase() + step.slice(1) + ' ')); // can't use css uppercase on inline elements
-                instructionsElem.appendChild(stepElem);
-            });
-
-            preambleElem.className = 'capitalize';
-            preambleElem.appendChild(document.createTextNode(preamble));
-            nameElem.className = 'capitalize';
-            nameElem.appendChild(document.createTextNode(name));
+            instructionsElem.appendChild(document.createTextNode(getInstructions(ingredientArr)));
             recipeElem.appendChild(nameElem);
+            recipeElem.appendChild(document.createElement('h2').appendChild(document.createTextNode('Ingredienser')));
             recipeElem.appendChild(ingredientsElem);
+            recipeElem.appendChild(document.createElement('h2').appendChild(document.createTextNode('Gör så här')));
             recipeElem.appendChild(instructionsElem);
             content.appendChild(preambleElem);
             content.appendChild(recipeElem);
