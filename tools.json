@@ -1,32 +1,25 @@
 {
     "tools": [
         {
-            "base": "kniv",
-            "ngen": true
+            "base": "en kniv"
         },
         {
-            "base": "osthyvel",
-            "ngen": true
+            "base": "en osthyvel"
         },
         {
-            "base": "potatisskalare",
-            "ngen": true
+            "base": "en potatisskalare"
         },
         {
-            "base": "rivjärn",
-            "ngen": false
+            "base": "ett rivjärn"
         },
         {
-            "base": "slev",
-            "ngen": true
+            "base": "en slev"
         },
         {
-            "base": "sten",
-            "ngen": true
+            "base": "en sten"
         },
         {
-            "base": "visp",
-            "ngen": true
+            "base": "en visp"
         }
     ]
 }

@@ -12,9 +12,14 @@
             "ingredientCount": 2
         },
         {
-            "base": "{0} {1} {2} med {3} {4} tills {5} blivit {6}.",
-            "components": [7, 3, 1, 8, 5, 4, 0],
+            "base": "{0} {1} {2} med {3} tills {4} blivit {5}.",
+            "components": [7, 3, 1, 5, 4, 0],
             "ingredientCount": 1
+        },
+        {
+            "base": "Blanda {0} och {1} i {2} och {3} ihop med {4}.",
+            "components": [3, 3, 2, 7, 5],
+            "ingredientCount": 2
         }
     ]
 }

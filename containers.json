@@ -1,9 +1,19 @@
 {
     "containers": [
-        "bunke",
-        "form",
-        "mått",
-        "panna",
-        "skål"
+        {
+            "base": "en bunke"
+        },
+        {
+            "base": "en form"
+        },
+        {
+            "base": "ett mått"
+        },
+        {
+            "base": "en panna"
+        },
+        {
+            "base": "en skål"
+        }
     ]
 }

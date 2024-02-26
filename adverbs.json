@@ -1,15 +1,37 @@
 {
     "adverbs": [
-        "hårt",
-        "fort",
-        "varsamt",
-        "poröst",
-        "frenetiskt",
-        "försiktigt",
-        "våldsamt",
-        "argt",
-        "längtansfullt",
-        "energiskt",
-        "sturskt"
+        {
+            "base": "hårt"
+        },
+        {
+            "base": "fort"
+        },
+        {
+            "base": "varsamt"
+        },
+        {
+            "base": "poröst"
+        },
+        {
+            "base": "frenetiskt"
+        },
+        {
+            "base": "försiktigt"
+        },
+        {
+            "base": "våldsamt"
+        },
+        {
+            "base": "argt"
+        },
+        {
+            "base": "längtansfullt"
+        },
+        {
+            "base": "energiskt"
+        },
+        {
+            "base": "sturskt"
+        }
     ]
 }
