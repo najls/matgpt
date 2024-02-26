@@ -1,0 +1,39 @@
+{
+    "methods": [
+        {
+            "base": "flambera",
+            "ngen": "flamberad",
+            "tgen": "flamberat"
+        },
+        {
+            "base": "grilla",
+            "ngen": "grillad",
+            "tgen": "grillat"
+        },
+        {
+            "base": "koka",
+            "ngen": "kokad",
+            "tgen": "kokat"
+        },
+        {
+            "base": "poschera",
+            "ngen": "poscherad",
+            "tgen": "poscherat"
+        },
+        {
+            "base": "skålla",
+            "ngen": "skållad",
+            "tgen": "skållat"
+        },
+        {
+            "base": "stek",
+            "ngen": "stekt",
+            "tgen": "stekt"
+        },
+        {
+            "base": "ånga",
+            "ngen": "ångad",
+            "tgen": "ångat"
+        }
+    ]
+}

@@ -16,11 +16,6 @@
             "tgen": "blandat"
         },
         {
-            "base": "flambera",
-            "ngen": "flamberad",
-            "tgen": "flamberat"
-        },
-        {
             "base": "garnera",
             "ngen": "garnerad",
             "tgen": "garnerat"
@@ -29,11 +24,6 @@
             "base": "hacka",
             "ngen": "hackad",
             "tgen": "hackat"
-        },
-        {
-            "base": "koka",
-            "ngen": "kokad",
-            "tgen": "kokat"
         },
         {
             "base": "linda",
@@ -46,19 +36,9 @@
             "tgen": "mosat"
         },
         {
-            "base": "poschera",
-            "ngen": "poscherad",
-            "tgen": "poscherat"
-        },
-        {
             "base": "räkna",
             "ngen": "räknad",
             "tgen": "räknat"
-        },
-        {
-            "base": "skålla",
-            "ngen": "skållad",
-            "tgen": "skållat"
         },
         {
             "base": "slunga",
@@ -69,11 +49,6 @@
             "base": "spräng",
             "ngen": "sprängd",
             "tgen": "sprängt"
-        },
-        {
-            "base": "stek",
-            "ngen": "stekt",
-            "tgen": "stekt"
         },
         {
             "base": "vispa",
