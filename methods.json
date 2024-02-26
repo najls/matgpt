@@ -6,6 +6,11 @@
             "tgen": "flamberat"
         },
         {
+            "base": "fräs",
+            "ngen": "fräst",
+            "tgen": "fräst"
+        },
+        {
             "base": "grilla",
             "ngen": "grillad",
             "tgen": "grillat"

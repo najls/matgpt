@@ -20,6 +20,11 @@
             "base": "Blanda {0} och {1} i {2} och {3} ihop med {4}.",
             "components": [3, 3, 2, 7, 5],
             "ingredientCount": 2
+        },
+        {
+            "base": "{0} {1} tillsammans med {2} och {3} i {4} tills det ser {5} ut.",
+            "components": [8, 3, 3, 3, 2, 0],
+            "ingredientCount": 3
         }
     ]
 }
