@@ -1,31 +1,31 @@
 {
     "tools": [
         {
-            "name": "kniv",
+            "base": "kniv",
             "ngen": true
         },
         {
-            "name": "osthyvel",
+            "base": "osthyvel",
             "ngen": true
         },
         {
-            "name": "potatisskalare",
+            "base": "potatisskalare",
             "ngen": true
         },
         {
-            "name": "rivjärn",
+            "base": "rivjärn",
             "ngen": false
         },
         {
-            "name": "slev",
+            "base": "slev",
             "ngen": true
         },
         {
-            "name": "sten",
+            "base": "sten",
             "ngen": true
         },
         {
-            "name": "visp",
+            "base": "visp",
             "ngen": true
         }
     ]
