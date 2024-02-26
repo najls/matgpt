@@ -357,7 +357,6 @@
                             ingCount++;
                             break;
                         case compType.pronoun:
-                            component = compTypeArr[type][getRandomInt(0, compTypeArr[type].length)];
                             // base pronoun on previous ingredient
                             if (ingArr[ingCount - 1].data.unit && ingArr[ingCount - 1].quantity > 1) compStr = pronouns[2];
                             else if (ingArr[ingCount - 1].data.ngen) compStr = pronouns[0];
