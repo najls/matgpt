@@ -10,6 +10,11 @@
             "base": "{0} {1} {2} och {3} {4} tills {5} blivit {6}.",
             "components": [7, 3, 1, 7, 3, 4, 0],
             "ingredientCount": 2
+        },
+        {
+            "base": "{0} {1} {2} med {3} {4} tills {5} blivit {6}.",
+            "components": [7, 3, 1, 8, 5, 4, 0],
+            "ingredientCount": 1
         }
     ]
 }
