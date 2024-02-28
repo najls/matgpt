@@ -89,7 +89,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header id="header">
         <h1>MatGPT</h1>
     </header>
     <main>
@@ -396,8 +396,10 @@
                 ingredientCount = getRandomInt(3, 7),
                 preambleElem = document.createElement('p'),
                 recipeElem = document.createElement('article'),
-                nameElem = document.createElement('h1'),
+                recipeHeading = document.createElement('h1'),
+                ingredientsHeading = document.createElement('h2'),
                 ingredientsElem = document.createElement('ul'),
+                instructionsHeading = document.createElement('h2'),
                 instructionsElem = document.createElement('p'),
                 ingredientArr = [];
 
@@ -407,8 +409,9 @@
 
             preambleElem.className = 'capitalize';
             preambleElem.appendChild(document.createTextNode(String.format(preambles[getRandomInt(0, preambles.length)], name)));
-            nameElem.className = 'capitalize';
-            nameElem.appendChild(document.createTextNode(name));
+            recipeHeading.className = 'capitalize';
+            recipeHeading.appendChild(document.createTextNode(name));
+            ingredientsHeading.appendChild(document.createTextNode('Ingredienser'));
 
             ingredientArr.forEach(ingredient => {
                 let li = document.createElement('li');
@@ -416,11 +419,12 @@
                 ingredientsElem.appendChild(li);
             });
 
+            instructionsHeading.appendChild(document.createTextNode('Gör så här'));
             instructionsElem.appendChild(document.createTextNode(getInstructions(ingredientArr)));
-            recipeElem.appendChild(nameElem);
-            recipeElem.appendChild(document.createElement('h2').appendChild(document.createTextNode('Ingredienser')));
+            recipeElem.appendChild(recipeHeading);
+            recipeElem.appendChild(ingredientsHeading);
             recipeElem.appendChild(ingredientsElem);
-            recipeElem.appendChild(document.createElement('h2').appendChild(document.createTextNode('Gör så här')));
+            recipeElem.appendChild(instructionsHeading);
             recipeElem.appendChild(instructionsElem);
             content.appendChild(preambleElem);
             content.appendChild(recipeElem);
@@ -435,7 +439,9 @@
             messageHead.appendChild(document.createTextNode(`${sender} (${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}):`));
             elem.insertBefore(messageHead, elem.firstChild);
             document.getElementById('chat').insertBefore(elem, document.getElementById('typing'));
-            window.scrollTo(0, document.body.scrollHeight);
+            let yOffset = -(document.getElementById('header').offsetHeight), // https://stackoverflow.com/a/56391657/19923687
+                y = elem.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo(0, y);
         }
 
         class Ingredient {
