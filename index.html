@@ -318,6 +318,7 @@
         function getInstructions(ingArr) {
             let stepArr = [],
                 ingCount = 0, // take as many steps as needed for all ingredients to appear once
+                usedComp = [], // store selected components as not to repeat ourselves
                 instructionSteps = []; // store resulting strings
 
             for (let i = 0; ingCount < ingArr.length; i++) {
@@ -335,46 +336,56 @@
             }
 
             ingCount = 0; // reset ingredient counter
+            let used = [];
 
             stepArr.forEach(step => {
-                let compStrings = [];
-
-                step.components.forEach(type => {
-                    let component,
-                        compStr = '';
-
-                    switch(type) {
-                        case compType.adjective:
-                            component = compTypeArr[type][getRandomInt(0, compTypeArr[type].length)];
-                            // base adjective on previous ingredient
-                            if (ingArr[ingCount - 1].data.unit && ingArr[ingCount - 1].quantity > 1) compStr = component.plural;
-                            else if (ingArr[ingCount - 1].data.ngen) compStr = component.ngen;
-                            else compStr = component.tgen;
-                            break;
-                        case compType.ingredient:
-                            component = ingArr[ingCount];
-                            compStr = component.data.unit && component.quantity > 1 ? component.data.definite[1] : component.data.definite[0];
-                            ingCount++;
-                            break;
-                        case compType.pronoun:
-                            // base pronoun on previous ingredient
-                            if (ingArr[ingCount - 1].data.unit && ingArr[ingCount - 1].quantity > 1) compStr = pronouns[2];
-                            else if (ingArr[ingCount - 1].data.ngen) compStr = pronouns[0];
-                            else compStr = pronouns[1];
-                            break;
-                        default:
-                            component = compTypeArr[type][getRandomInt(0, compTypeArr[type].length)];
-                            compStr += component.base;
-                    }
-
-                    compStrings.push(compStr);
-                });
-
-                let sentence = String.format(step.base, ...compStrings);
+                let sentence = getSentence(ingArr, ingCount, step, used);
                 instructionSteps.push(sentence.charAt(0).toUpperCase() + sentence.slice(1)); // capitalize first letter
+                ingCount = step.ingredientCount;
             });
 
             return instructionSteps.join(' ');
+        }
+
+        function getSentence(ingredients, ingIndex, step, used) {
+            let compStrings = [];
+            // this is so bad. below while loops will loop forever if the number of components in entire instruction exceeds the number of words in json files
+            if (!used.includes(undefined)) used.push(undefined);
+
+            step.components.forEach(type => {
+                let component,
+                    compStr = '';
+
+                switch(type) {
+                    case compType.adjective:
+                        while (used.includes(component)) component = compTypeArr[type][getRandomInt(0, compTypeArr[type].length)];
+                        used.push(component);
+                        // base adjective on previous ingredient
+                        if (ingredients[ingIndex - 1].data.unit && ingredients[ingIndex - 1].quantity > 1) compStr = component.plural;
+                        else if (ingredients[ingIndex - 1].data.ngen) compStr = component.ngen;
+                        else compStr = component.tgen;
+                        break;
+                    case compType.ingredient:
+                        component = ingredients[ingIndex];
+                        compStr = component.data.unit && component.quantity > 1 ? component.data.definite[1] : component.data.definite[0];
+                        ingIndex++;
+                        break;
+                    case compType.pronoun:
+                        // base pronoun on previous ingredient
+                        if (ingredients[ingIndex - 1].data.unit && ingredients[ingIndex - 1].quantity > 1) compStr = pronouns[2];
+                        else if (ingredients[ingIndex - 1].data.ngen) compStr = pronouns[0];
+                        else compStr = pronouns[1];
+                        break;
+                    default:
+                        while (used.includes(component)) component = compTypeArr[type][getRandomInt(0, compTypeArr[type].length)];
+                        used.push(component);
+                        compStr += component.base;
+                }
+
+                compStrings.push(compStr);
+            });
+
+            return String.format(step.base, ...compStrings);
         }
 
         async function greet() {
@@ -403,6 +414,7 @@
                 instructionsElem = document.createElement('p'),
                 ingredientArr = [];
 
+            // user a sort function to get n random ingredients where n = ingredientCount
             ingredients.sort(() => .5 - Math.random()).slice(0, ingredientCount).forEach(ingredient => ingredientArr.push(new Ingredient(ingredient)));
 
             let name = getName(ingredientArr);
