@@ -391,7 +391,7 @@
             registeredResponses++;
             document.getElementById('typing').classList.remove('display-none');
             window.scrollTo(0, document.body.scrollHeight);
-            await new Promise(r => setTimeout(r, getRandomInt(20, 60) * 100)); // wait for 2 to 6 seconds
+            await new Promise(r => setTimeout(r, getRandomInt(15, 40) * 100)); // wait for 2 to 4 seconds
             let content = document.createElement('div'),
                 ingredientCount = getRandomInt(3, 7),
                 preambleElem = document.createElement('p'),
