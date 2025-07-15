@@ -29,6 +29,12 @@
         },
         {
             "base": "noggrant"
+        },
+        {
+            "base": "snabbt"
+        },
+        {
+            "base": "stenårt"
         }
     ]
 }

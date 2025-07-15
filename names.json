@@ -101,6 +101,18 @@
             "components": [3],
             "compound": [false],
             "shape": null
+        },
+        {
+            "base": "{0}sallad",
+            "components": [3],
+            "compound": [true],
+            "shape": null
+        },
+        {
+            "base": "{0}- och {1}sallad",
+            "components": [3, 3],
+            "compound": [true],
+            "shape": null
         }
     ]
 }

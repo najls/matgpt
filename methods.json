@@ -26,6 +26,21 @@
             "tgen": "poscherat"
         },
         {
+            "base": "rengör",
+            "ngen": "rengjord",
+            "tgen": "rengjort"
+        },
+        {
+            "base": "skiva",
+            "ngen": "skivad",
+            "tgen": "skivat"
+        },
+        {
+            "base": "skölj",
+            "ngen": "sköljd",
+            "tgen": "sköljt"
+        },
+        {
             "base": "skålla",
             "ngen": "skållad",
             "tgen": "skållat"

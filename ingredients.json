@@ -167,6 +167,76 @@
             "compound": "äppel",
             "unit": true,
             "ngen": false
+        },
+        {
+            "indefinite": ["bröd", "bröd"],
+            "definite": ["brödet", "bröden"],
+            "compound": null,
+            "unit": true,
+            "ngen": false
+        },
+        {
+            "indefinite": ["chips", "chips"],
+            "definite": ["chipset", "chipsen"],
+            "compound": null,
+            "unit": true,
+            "ngen": false
+        },
+        {
+            "indefinite": ["nötfärs"],
+            "definite": ["nötfärsen"],
+            "compound": "nötfärs",
+            "unit": false,
+            "ngen": true
+        },
+        {
+            "indefinite": ["lök", "lökar"],
+            "definite": ["löken", "lökarna"],
+            "compound": null,
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["vitlök", "vitlökar"],
+            "definite": ["vitlöken", "vitlökarna"],
+            "compound": "vitlöks",
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["selleri"],
+            "definite": ["sellerin"],
+            "compound": null,
+            "unit": false,
+            "ngen": true
+        },
+        {
+            "indefinite": ["räka", "räkor"],
+            "definite": ["räkan", "räkorna"],
+            "compound": "räk",
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["flundra", "flundror"],
+            "definite": ["flundran", "flundrorna"],
+            "compound": "flunder",
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["kyckling", "kycklingar"],
+            "definite": ["kycklingen", "kycklingarna"],
+            "compound": null,
+            "unit": true,
+            "ngen": true
+        },
+        {
+            "indefinite": ["mjölk"],
+            "definite": ["mjölken"],
+            "compound": null,
+            "unit": false,
+            "ngen": true
         }
     ]
 }

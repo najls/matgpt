@@ -6,9 +6,19 @@
             "plural": "bra"
         },
         {
-            "ngen": "fattig",
-            "tgen": "fattigt",
-            "plural": "fattiga"
+            "ngen": "brungrå",
+            "tgen": "brungrått",
+            "plural": "brungråa"
+        },
+        {
+            "ngen": "bränd",
+            "tgen": "bränt",
+            "plural": "brända"
+        },
+        {
+            "ngen": "frasig",
+            "tgen": "frasigt",
+            "plural": "frasiga"
         },
         {
             "ngen": "god",
@@ -31,6 +41,26 @@
             "plural": "himmelska"
         },
         {
+            "ngen": "hård",
+            "tgen": "hårt",
+            "plural": "hårda"
+        },
+        {
+            "ngen": "kladdig",
+            "tgen": "kladdigt",
+            "plural": "kladdiga"
+        },
+        {
+            "ngen": "lös",
+            "tgen": "löst",
+            "plural": "lösa"
+        },
+        {
+            "ngen": "matig",
+            "tgen": "matigt",
+            "plural": "matiga"
+        },
+        {
             "ngen": "porös",
             "tgen": "poröst",
             "plural": "porösa"
@@ -41,9 +71,9 @@
             "plural": "röda"
         },
         {
-            "ngen": "brungrå",
-            "tgen": "brungrått",
-            "plural": "brungråa"
+            "ngen": "vidbränd",
+            "tgen": "vridbränt",
+            "plural": "vidbrända"
         }
     ]
 }
